@@ -57,13 +57,6 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
-dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web") {
 		exclude("org.springframework.boot:spring-boot-starter-tomcat")
 	}
@@ -74,12 +67,16 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.kafka:spring-kafka")
 
+
 	implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
 
 // prometheus - metrics
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("io.micrometer:micrometer-registry-prometheus")
-
+// swagger
+	implementation("org.springdoc:springdoc-openapi-data-rest:1.6.0")
+	implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
+	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
 
 // EXAMPLE FOR KAFKA STREAM
 //	implementation("org.apache.kafka:kafka-streams")
