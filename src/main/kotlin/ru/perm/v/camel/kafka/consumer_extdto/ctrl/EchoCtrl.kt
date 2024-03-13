@@ -1,4 +1,4 @@
-package ru.perm.v.camel.kafka.consumer_extdto
+package ru.perm.v.camel.kafka.consumer_extdto.ctrl
 
 import io.swagger.v3.oas.annotations.Operation
 import org.springframework.web.bind.annotation.GetMapping
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/echo")
 class EchoCtrl {
     @GetMapping("/{msg}")
-    @Operation(summary = "SUmmurize echo", description = "Descripion echo")
+    @Operation(summary = "Short description echo", description = "Full descripion echo")
     fun echo(
         @PathVariable("msg")
         msg: String,
