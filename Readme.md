@@ -19,3 +19,5 @@ export KAFKA_SERVER=192.168.1.20
 REST URL: /camel_kafka_consumer_extdto/api
 
 Swagger: http://127.0.0.1:8992/camel_kafka_consumer_extdto/api/swagger-ui/index.html
+
+![swagger](doc/swagger.png)
