@@ -1,0 +1,59 @@
+server:
+  port: ${API_PORT:8992}
+  jetty:
+    min-threads: 8
+    max-threads: 200
+    thread-idle-timeout: 60000
+  servlet:
+    context-path: "/camel_kafka_consumer_extdto/api"
+  # For include message error to http response!!!
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: camel_kafka_consumer_extdto
+
+  kafka:
+    consumer:
+      bootstrap-servers: ${KAFKA_SERVER:192.168.1.20:9092}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+management:
+  health:
+    probes:
+      enabled: true
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+      enabled: true
+    caches:
+      enabled: true
+    info:
+      enabled: true
+      show-details: always
+    beans:
+      enabled: true
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: "/camel_kafka_consumer_extdto/api/actuator"
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+  server:
+    port: 8998
