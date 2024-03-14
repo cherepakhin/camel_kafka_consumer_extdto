@@ -1,5 +1,5 @@
 server:
-  port: ${API_PORT:8992}
+  port: ${CAMEL_KAFKA_CONSUMER_API_PORT:8994}
   jetty:
     min-threads: 8
     max-threads: 200
@@ -61,3 +61,4 @@ management:
         "[http.server.requests]": true
   server:
     port: 8998
+

@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.com.intellij.openapi.vfs.StandardFileSystems.jar
 
 group = "ru.perm.v"
 // change version on publishing
@@ -6,6 +7,7 @@ version = "0.24.0313.1"
 description = "Camel Kafka Consumer with ru.perm.v.shop_kotlin_extdto"
 val kafkaApiVersion = "3.3.1"
 var shopKotlinExtDtoVersion = "0.0.5"
+var springFoxVersion = "3.0.0"
 
 buildscript {
 	var kotlinVersion: String? by extra; kotlinVersion = "1.1.51"
@@ -68,19 +70,20 @@ dependencies {
 //	implementation("org.springframework.kafka:spring-kafka")
 // https://mavenlibs.com/maven/dependency/org.apache.camel.springboot/camel-spring-boot
 //	implementation("org.apache.camel.springboot:camel-spring-boot:4.0.0")
+
+//kafka
 	implementation("org.apache.camel.springboot:camel-kafka-starter:4.0.0")
-
+// my extdto
 	implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
-
 // prometheus - metrics
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("io.micrometer:micrometer-registry-prometheus")
 // swagger
-	implementation("org.springdoc:springdoc-openapi-data-rest:1.6.0")
-	implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
-	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
-//kafka
+	implementation("io.springfox:springfox-boot-starter:$springFoxVersion")
 
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3")
+//	implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
+//	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
 // camel
 	implementation("org.apache.camel.springboot:camel-kafka-starter:3.8.0")
 
