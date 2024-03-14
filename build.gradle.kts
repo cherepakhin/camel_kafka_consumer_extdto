@@ -65,8 +65,10 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.springframework.kafka:spring-kafka")
-
+//	implementation("org.springframework.kafka:spring-kafka")
+// https://mavenlibs.com/maven/dependency/org.apache.camel.springboot/camel-spring-boot
+//	implementation("org.apache.camel.springboot:camel-spring-boot:4.0.0")
+	implementation("org.apache.camel.springboot:camel-kafka-starter:4.0.0")
 
 	implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
 
@@ -77,6 +79,11 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-data-rest:1.6.0")
 	implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
 	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
+//kafka
+
+// camel
+	implementation("org.apache.camel.springboot:camel-kafka-starter:3.8.0")
+
 
 // EXAMPLE FOR KAFKA STREAM
 //	implementation("org.apache.kafka:kafka-streams")
