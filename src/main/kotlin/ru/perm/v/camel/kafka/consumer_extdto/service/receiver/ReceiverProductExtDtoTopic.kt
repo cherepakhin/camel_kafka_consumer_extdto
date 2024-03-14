@@ -13,7 +13,7 @@ import ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto
  */
 @Component
 class ReceiverProductExtDtoTopic: RouteBuilder() {
-    val TOPIC="product-ext-dto"
+    val TOPIC="product_ext_dto"
     val KAFKA_HOST = "192.168.1.20:9092"
     override fun configure() {
         from("kafka:$TOPIC?brokers=$KAFKA_HOST")

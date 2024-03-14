@@ -25,3 +25,31 @@ REST URL: /camel_kafka_consumer_extdto/api
 Swagger: http://127.0.0.1:8992/camel_kafka_consumer_extdto/api/swagger-ui/index.html
 
 ![swagger](doc/swagger.png)
+
+## Test
+
+Generate messages and send to topic "product_ext_dto":
+
+````shell
+$ ./send_many_messages.sh 10000
+````
+
+Run project for read messages:
+
+````shell
+./gradlew bootRun
+````
+
+Log:
+
+````shell
+INFO 20995 --- [product_ext_dto]] route1                                   : Received messages: {"n":1,"name":"NAME_1","groupDtoN":1}
+
+....
+
+INFO 20995 --- [product_ext_dto]] r.p.v.c.k.c.mapper.MapperProductExtDto   : ProcessorProductExtDto received: ProductExtDTO(n=9999, name='NAME_9999', groupDtoN=9999)
+INFO 20995 --- [product_ext_dto]] route1                                   : Converted messages: ProductExtDTO(n=9999, name='NAME_9999', groupDtoN=9999)
+
+````
+
+repeat $ ./send_many_messages.sh 10000
