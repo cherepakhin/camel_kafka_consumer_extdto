@@ -54,3 +54,28 @@ myconfig:
 ````
 
 For an example of use, see [ReceiverProductExtDtoTopic.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/src/main/kotlin/ru/perm/v/camel/kafka/consumer_extdto/service/receiver/ReceiverProductExtDtoTopic.kt)
+
+<a id="create_runable"></a>
+### Create runable jar
+
+Build:
+
+````shell
+./gradlew bootJar
+````
+(**bootJar**, NOT **bootRun!!!**)
+
+builded jar in **./build/libs/**
+
+run with limit RAM 256Mb:
+
+````shell
+shop_kotlin/$ java -Xmx256M -jar build/libs/camel_kafka_consumer_extdto-0.24.0313.1.jar
+````
+
+or:
+
+````shell
+cd shop_kotlin/build/libs 
+shop_kotlin/build/libs$ java -Xmx256M -jar shop_kotlin-0.1.20.jar
+````
