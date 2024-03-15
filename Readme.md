@@ -16,6 +16,7 @@ Swagger: http://127.0.0.1:__APP_CAMEL_KAFKA_CONSUMER_API_PORT__/camel_kafka_cons
 
 ![swagger](doc/swagger.png)
 
+# Variants send to 
 ## Test
 
 Generate messages and __send__ to topic "product_ext_dto":

@@ -3,7 +3,7 @@ package ru.perm.v.camel.kafka.consumer_extdto.service.receiver
 import org.apache.camel.builder.RouteBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto
+import ru.perm.v.camel.kafka.consumer_extdto.service.UserProductExtDtoService
 
 /**
  * Receiver ProductExtDto frm Kafka Topic product_ext_dto
@@ -24,8 +24,13 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
     override fun configure() {
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
             .log("Received messages: \${body}")
-            .bean(MapperProductExtDto::class.java, "fromJson") // return ProductExtDto from external library implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
+// Method  1 send to bean
+            .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
+// Method  2 send to bean
+            .bean(UserProductExtDtoService::class.java, "processMethod")
+// returning ProductExtDto from external library implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion"
             .log("Converted messages: \${body}") // body is object ProductExtDto
+
 //            .to("kafka:processed-orders")
     }
 }
