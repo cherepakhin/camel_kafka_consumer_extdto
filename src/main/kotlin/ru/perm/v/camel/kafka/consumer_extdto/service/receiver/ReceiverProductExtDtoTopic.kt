@@ -25,7 +25,7 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
     override fun configure() {
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
             .log("Received messages: \${body}")
-            .bean(MapperProductExtDto::class.java, "fromJson")
+            .bean(MapperProductExtDto::class.java, "fromJson") // return ProductExtDto from external library implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
             .log("Converted messages: \${body}")
 //            .to("kafka:processed-orders")
     }

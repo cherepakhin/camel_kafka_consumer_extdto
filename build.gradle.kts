@@ -27,8 +27,8 @@ repositories {
 	maven {
 		url = uri("https://plugins.gradle.org/m2/")
 	}
+//	Define MY private repository. For import implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
 	maven {
-
 		url = uri("http://v.perm.ru:8082/repository/ru.perm.v") //OK
 		isAllowInsecureProtocol = true
 		credentials {
