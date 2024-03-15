@@ -44,6 +44,8 @@ INFO --- [product_ext_dto]] route1                                   : Converted
 
 # User defined variables in application.yaml
 
+Example of definition [MyConfig.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/src/main/kotlin/ru/perm/v/camel/kafka/consumer_extdto/config/MyConfig.kt)
+
 ````shell
 myconfig:
   kafkaHost: 192.168.1.20:9092
