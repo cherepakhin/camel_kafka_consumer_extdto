@@ -1,6 +1,6 @@
 ## Camel consumer Kafka for ExtDTO 
 
-Simple receive messages (text, json) from Kafka queue wit Camel.
+Simple receive messages (text and json) from Kafka queue with Camel.
 
 [Environment variables:
 __APP_CAMEL_KAFKA_CONSUMER_API_PORT__ - __REST API__ port __application__ (defult value 8994).
@@ -41,3 +41,14 @@ INFO --- [product_ext_dto]] r.p.v.c.k.c.mapper.MapperProductExtDto   : Processor
 INFO --- [product_ext_dto]] route1                                   : Converted messages: ProductExtDTO(n=9999, name='NAME_9999', groupDtoN=9999)
 
 ````
+
+# User devined variables in application.yaml
+
+````shell
+myconfig:
+  kafkaHost: 192.168.1.20:9092
+  productExtDtoTopic: "product_ext_dto"
+  
+````
+
+For an example of use, see [ReceiverProductExtDtoTopic.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/src/main/kotlin/ru/perm/v/camel/kafka/consumer_extdto/service/receiver/ReceiverProductExtDtoTopic.kt)

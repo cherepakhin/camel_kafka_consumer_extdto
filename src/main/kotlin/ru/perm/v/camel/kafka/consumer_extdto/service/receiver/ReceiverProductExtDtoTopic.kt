@@ -1,7 +1,9 @@
 package ru.perm.v.camel.kafka.consumer_extdto.service.receiver
 
 import org.apache.camel.builder.RouteBuilder
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
+import ru.perm.v.camel.kafka.consumer_extdto.config.MyConfig
 import ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto
 
 /**
@@ -13,10 +15,15 @@ import ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto
  */
 @Component
 class ReceiverProductExtDtoTopic: RouteBuilder() {
-    val TOPIC="product_ext_dto"
-    val KAFKA_HOST = "192.168.1.20:9092"
+    // Example: val KAFKA_HOST = "192.168.1.20:9092"
+    @Value("{\${myconfig.kafkaHost}")
+    lateinit var KAFKA_HOST:String
+    // Example: val PRODUCT_EXT_DTO_TOPIC="product_ext_dto"
+    @Value("\${myconfig.productExtDtoTopic}")
+    lateinit var PRODUCT_EXT_DTO_TOPIC:String
+
     override fun configure() {
-        from("kafka:$TOPIC?brokers=$KAFKA_HOST")
+        from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
             .log("Received messages: \${body}")
             .bean(MapperProductExtDto::class.java, "fromJson")
             .log("Converted messages: \${body}")

@@ -87,6 +87,7 @@ dependencies {
 // camel
 	implementation("org.apache.camel.springboot:camel-kafka-starter:3.8.0")
 
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
 // EXAMPLE FOR KAFKA STREAM
 //	implementation("org.apache.kafka:kafka-streams")
