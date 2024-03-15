@@ -1,5 +1,5 @@
 server:
-  port: ${CAMEL_KAFKA_CONSUMER_API_PORT:8994}
+  port: ${APP_CAMEL_KAFKA_CONSUMER_API_PORT:8994}
   jetty:
     min-threads: 8
     max-threads: 200
@@ -13,17 +13,6 @@ server:
 spring:
   application:
     name: camel_kafka_consumer_extdto
-
-camel:
-  component:
-#    kafka:
-#      brokers: ${KAFKA_SERVER:192.168.1.20:9092}
-    kafka:
-      consumer:
-        bootstrap-servers: ${KAFKA_SERVER:192.168.1.20:9092}
-        auto-offset-reset: earliest
-        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 management:
   health:
