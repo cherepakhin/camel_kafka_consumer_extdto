@@ -42,7 +42,7 @@ INFO --- [product_ext_dto]] route1                                   : Converted
 
 ````
 
-# User devined variables in application.yaml
+# User defined variables in application.yaml
 
 ````shell
 myconfig:
