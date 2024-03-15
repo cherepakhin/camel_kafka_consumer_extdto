@@ -25,15 +25,15 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
     override fun configure() {
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
             .log("Received messages: \${body}")
-// Method 1 send to bean. Bean defined as string
+// Method 1 usage BEAN. Send to bean. Bean defined as string.
+// it will be convert to ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
-// Method 2 send to bean with class and method
+// Method 2 usage BEAN. Send to bean with class and method
             .bean(UserProductExtDtoService::class.java, "processMethod")
-// Method 3 send bean to processor
+// Method 3 usage BEAN. Send bean to processor.
+// Processor have default method process(exchange: Exchange?).
             .bean(ProductCamelProcessor::class.java)
-// it will be refunded ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
             .log("Converted messages: \${body}") // body is object ProductExtDto
-
 //            .to("kafka:processed-orders")
     }
 }
