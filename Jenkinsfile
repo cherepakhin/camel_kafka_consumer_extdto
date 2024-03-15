@@ -1,4 +1,3 @@
-
 pipeline {
 
     agent any
@@ -6,27 +5,29 @@ pipeline {
         durabilityHint 'MAX_SURVIVABILITY'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
+         stage('git clone') {
+             steps {
+             sh 'pwd'
+             sh 'rm -r -f camel_kafka_consumer_extdto'
+             sh 'git clone https://github.com/cherepakhin/camel_kafka_consumer_extdto.git'
+             sh 'ls'
+             }
+         }
         stage('Unit tests') {
             steps {
-                sh './gradlew clean test --tests *Test'
+                sh 'pwd;cd camel_kafka_consumer_extdto;./gradlew clean test --tests *Test'
             }
         }
 
         stage('Build') {
             steps {
-                sh './gradlew build'
+                sh 'pwd;cd camel_kafka_consumer_extdto;./gradlew build'
             }
         }
 
         stage('Build bootJar') {
             steps {
-                sh 'pwd;cd shop_kafka_consumer;./gradlew bootJar'
+                sh 'pwd;cd camel_kafka_consumer_extdto;./gradlew bootJar'
             }
         }
 
@@ -35,7 +36,7 @@ pipeline {
                 NEXUS_CRED = credentials('nexus_admin')
             }
             steps {
-                sh 'pwd;cd shop_kafka_consumer;./gradlew publish'
+                sh 'pwd;cd camel_kafka_consumer_extdto;./gradlew publish'
             }
         }
     }

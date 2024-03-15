@@ -42,7 +42,7 @@ INFO --- [product_ext_dto]] route1                                   : Converted
 
 ````
 
-# User defined variables in application.yaml
+## User defined variables in application.yaml
 
 Example of definition [MyConfig.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/src/main/kotlin/ru/perm/v/camel/kafka/consumer_extdto/config/MyConfig.kt)
 
@@ -79,3 +79,8 @@ or:
 cd shop_kotlin/build/libs 
 shop_kotlin/build/libs$ java -Xmx256M -jar shop_kotlin-0.1.20.jar
 ````
+## Jenkins pipeline
+
+[Jenkinsfile](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/Jenkinsfile)
+
+![jenkins_pipeline](doc/jenkins_pipeline.png)
