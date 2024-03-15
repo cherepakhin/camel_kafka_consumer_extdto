@@ -4,6 +4,7 @@ import org.apache.camel.builder.RouteBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import ru.perm.v.camel.kafka.consumer_extdto.service.UserProductExtDtoService
+import ru.perm.v.camel.kafka.consumer_extdto.service.processor.ProductCamelProcessor
 
 /**
  * Receiver ProductExtDto frm Kafka Topic product_ext_dto
@@ -24,11 +25,12 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
     override fun configure() {
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
             .log("Received messages: \${body}")
-// Method  1 send to bean
+// Method 1 send to bean. Bean defined as string
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
-// Method  2 send to bean
+// Method 2 send to bean with class and method
             .bean(UserProductExtDtoService::class.java, "processMethod")
-// returning ProductExtDto from external library implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion"
+            .bean(ProductCamelProcessor::class.java)
+// it will be refunded ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
             .log("Converted messages: \${body}") // body is object ProductExtDto
 
 //            .to("kafka:processed-orders")
