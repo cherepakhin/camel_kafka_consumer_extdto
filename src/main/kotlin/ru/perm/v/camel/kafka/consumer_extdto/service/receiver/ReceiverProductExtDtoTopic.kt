@@ -26,7 +26,7 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
             .log("Received messages: \${body}")
 // Method 1 usage BEAN. Send to bean. Bean defined as string.
-// it will be convert to ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
+// it will be convert String to ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
 // Method 2 usage BEAN. Send to bean with class and method
             .bean(UserProductExtDtoService::class.java, "processMethod")
