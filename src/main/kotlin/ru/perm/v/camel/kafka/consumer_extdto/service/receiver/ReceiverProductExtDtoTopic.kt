@@ -27,11 +27,14 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
             .log("Received messages: \${body}")
 // Method 1 usage BEAN. Send to bean. Bean defined as string.
 // it will be convert String to ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
+// MapperProductExtDto is NO dependence on the Camel.
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
-// Method 2 usage BEAN. Send to bean with class and method
+// Method 2 usage BEAN. Send to bean with class and method.
+// UserProductExtDtoService is NO dependence on the Camel.
             .bean(UserProductExtDtoService::class.java, "processMethod")
 // Method 3 usage BEAN. Send bean to processor.
 // Processor have default method process(exchange: Exchange?).
+// ProductCamelProcessor IS dependence on the Camel.
             .bean(ProductCamelProcessor::class.java)
             .log("Converted messages: \${body}") // body is object ProductExtDto
 //            .to("kafka:processed-orders")
