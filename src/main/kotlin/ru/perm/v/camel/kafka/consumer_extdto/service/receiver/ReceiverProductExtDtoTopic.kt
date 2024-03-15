@@ -29,6 +29,7 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
 // Method 2 send to bean with class and method
             .bean(UserProductExtDtoService::class.java, "processMethod")
+// Method 3 send bean to processor
             .bean(ProductCamelProcessor::class.java)
 // it will be refunded ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
             .log("Converted messages: \${body}") // body is object ProductExtDto
