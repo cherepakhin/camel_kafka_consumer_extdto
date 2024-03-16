@@ -1,6 +1,7 @@
 package ru.perm.v.camel.kafka.consumer_extdto.service.receiver
 
 import org.apache.camel.builder.RouteBuilder
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import ru.perm.v.camel.kafka.consumer_extdto.service.UserProductExtDtoService
@@ -21,7 +22,8 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
     // Example: val PRODUCT_EXT_DTO_TOPIC="product_ext_dto"
     @Value("\${myconfig.productExtDtoTopic}")
     lateinit var PRODUCT_EXT_DTO_TOPIC:String
-
+    @Autowired
+    lateinit var receiverSpringBean: IReceiverSpringBean
     override fun configure() {
 // "from()" read from kafka queue, return JSON String
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
@@ -43,6 +45,8 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 // ProductCamelProcessor REQUIRES dependence Camel.
 // function .bean() like .to()
             .bean(ProductCamelProcessor::class.java)
+// Method 4 usage BEAN. Send to autowired SPRING BEAN
+            .bean(receiverSpringBean, "receive")
             .log("ReceiverProductExtDtoTopic. Converted messages: \${body}") // body is object ProductExtDto
 //            .to("kafka:processed-orders")
     }
