@@ -9,8 +9,9 @@ class MapperProductExtDto {
     val mapper = jacksonObjectMapper()
 
     fun fromJson(json: String): ProductExtDTO {
+        logger.info("MapperProductExtDto received json=$json")
         val productExtDto= mapper.readValue(json, ProductExtDTO::class.java)
-        logger.info("ProcessorProductExtDto received: $productExtDto")
+        logger.info("MapperProductExtDto after json convert: $productExtDto")
         return productExtDto
     }
 
