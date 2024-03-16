@@ -8,7 +8,7 @@ import ru.perm.v.camel.kafka.consumer_extdto.service.UserProductExtDtoService
 import ru.perm.v.camel.kafka.consumer_extdto.service.processor.ProductCamelProcessor
 
 /**
- * Receiver ProductExtDto frm Kafka Topic product_ext_dto
+ * Receiver ProductExtDto from Kafka Topic product_ext_dto
  *
  * for manual test receiver, send to kafka through console:
  * $ ~/tools/kafka/bin/kafka-console-producer.sh --bootstrap-server 192.168.1.20:9092 --topic product-ext-dto

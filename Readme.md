@@ -85,3 +85,11 @@ shop_kotlin/build/libs$ java -Xmx256M -jar shop_kotlin-0.1.20.jar
 [Jenkinsfile](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/Jenkinsfile)
 
 ![jenkins_pipeline](doc/jenkins_pipeline.png)
+
+### Demo Camel Route
+
+4 examples Camel Route in [ru.perm.v.camel.kafka.consumer_extdto.service.receiver.ReceiverProductExtDtoTopic.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/ru/perm/v/camel/kafka.consumer_extdto/service/receiver/ReceiverProductExtDtoTopic.kt)
+
+````kotlin
+
+````
