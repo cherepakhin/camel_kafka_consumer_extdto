@@ -88,7 +88,7 @@ shop_kotlin/build/libs$ java -Xmx256M -jar shop_kotlin-0.1.20.jar
 
 ### Demo Camel Route
 
-4 examples Camel Route in [ru.perm.v.camel.kafka.consumer_extdto.service.receiver.ReceiverProductExtDtoTopic.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/ru/perm/v/camel/kafka.consumer_extdto/service/receiver/ReceiverProductExtDtoTopic.kt)
+4 examples Camel Route in [ru.perm.v.camel.kafka.consumer_extdto.service.receiver.ReceiverProductExtDtoTopic.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/src/main/kotlin/ru/perm/v/camel/kafka/consumer_extdto/service/receiver/ReceiverProductExtDtoTopic.kt)
 
 ````kotlin
 @Component
