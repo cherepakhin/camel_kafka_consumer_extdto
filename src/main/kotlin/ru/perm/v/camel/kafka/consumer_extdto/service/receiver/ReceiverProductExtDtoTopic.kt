@@ -23,20 +23,26 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
     lateinit var PRODUCT_EXT_DTO_TOPIC:String
 
     override fun configure() {
+// "from()" read from kafka queue, return JSON String
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
-            .log("Received messages: \${body}")
+            .log("ReceiverProductExtDtoTopic. Camel \"from\" received from Kafka queue ${PRODUCT_EXT_DTO_TOPIC} body=\${body}")
 // Method 1 usage BEAN. Send to bean. Bean defined as string.
 // it will be convert String to ProductExtDto defined in external library: implementation("ru.perm.v:shop_kotlin_extdto"
-// MapperProductExtDto is NO dependence on the Camel.
+// MapperProductExtDto is NO REQUIRES dependence Camel.
+// method fromJson() receive JSON String and convert to ProductExtDto
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
+// UserProductExtDtoService{ fun processMethod(product: ProductExtDTO): ProductExtDTO {...}}
 // Method 2 usage BEAN. Send to bean with class and method.
-// UserProductExtDtoService is NO dependence on the Camel.
+// UserProductExtDtoService does NOT REQUIRES dependence Camel.
+// function .bean() equals .to(), but use simple class with any method and return any object.
+// BUT method name as STRING VALUE(!).
             .bean(UserProductExtDtoService::class.java, "processMethod")
-// Method 3 usage BEAN. Send bean to processor.
+// Method 3 usage BEAN. Send bean to processor (implemented Processor).
 // Processor have default method process(exchange: Exchange?).
-// ProductCamelProcessor IS dependence on the Camel.
+// ProductCamelProcessor REQUIRES dependence Camel.
+// function .bean() equals .to()
             .bean(ProductCamelProcessor::class.java)
-            .log("Converted messages: \${body}") // body is object ProductExtDto
+            .log("ReceiverProductExtDtoTopic. Converted messages: \${body}") // body is object ProductExtDto
 //            .to("kafka:processed-orders")
     }
 }
