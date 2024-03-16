@@ -16,7 +16,7 @@ cat /dev/null > ./product_list.json
 count_messages=$1
 
 # generate messages
-for ((i=1; i < count_messages; i++))
+for ((i=0; i < count_messages; i++))
 do
   echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i}" >> ./product_list.json
 done
