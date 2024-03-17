@@ -25,6 +25,13 @@ Generate messages and __send__ to topic "product_ext_dto":
 $ ./send_many_messages.sh 10000
 ````
 
+Manual receive messages:
+
+````shell
+./kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto  --from-beginning
+````
+
+
 Run project for read messages:
 
 ````shell
@@ -153,6 +160,8 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 UI for Kafka
 
 [https://github.com/obsidiandynamics/kafdrop](https://github.com/obsidiandynamics/kafdrop)
+
+JAVA 17.
 
 Запуск kafdrop (из v.perm.ru:/home/vasi/tools/kafdrop/):
 
