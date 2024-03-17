@@ -31,6 +31,13 @@ Manual receive messages:
 ./kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto  --from-beginning
 ````
 
+Config:
+
+Задать время хранения данных в топике 3 мин (180 000 мсек.), после этого удалять:
+
+````shell
+./kafka-configs.sh --bootstrap-server 192.168.1.20:9092 --entity-type topics --entity-name product_ext_dto --alter --add-config retention.ms=180000
+````
 
 Run project for read messages:
 
