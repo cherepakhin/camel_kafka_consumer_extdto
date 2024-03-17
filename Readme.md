@@ -39,7 +39,11 @@ Config:
 ./kafka-configs.sh --bootstrap-server 192.168.1.20:9092 --entity-type topics --entity-name product_ext_dto --alter --add-config retention.ms=180000
 ````
 
-Путь для данных очередей Kafka задается в /home/vasi/tools/kafka/config/server.properties, параметр __log.dirs__ (log.dirs=/tmp/kafka-logs)
+Путь для данных очередей Kafka задается в /home/vasi/tools/kafka/config/server.properties:
+
+````text
+log.dirs=/tmp/kafka-logs
+````
 
 Run project for read messages:
 
