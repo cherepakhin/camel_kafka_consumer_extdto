@@ -1,0 +1,11 @@
+  # http://127.0.0.1:8998/camel_kafka_consumer_extdto/api/actuator/"
+  - job_name: "camel_kafka_consumer_extdto(note 1.57)"
+    scrape_interval: 5s
+
+    #metrics_path defaults to '/metrics'
+    metrics_path: "/camel_kafka_consumer_extdto/api/actuator/prometheus"
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ["192.168.1.57:8998"]
+
