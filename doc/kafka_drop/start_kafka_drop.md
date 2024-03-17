@@ -1,3 +1,5 @@
+[https://github.com/obsidiandynamics/kafdrop](https://github.com/obsidiandynamics/kafdrop)
+
 Запуск kafdrop (из v.perm.ru:/home/vasi/tools/kafdrop/):
 
 ````shell
