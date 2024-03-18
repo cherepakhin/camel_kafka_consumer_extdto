@@ -18,6 +18,8 @@ count_messages=$1
 # generate messages
 for ((i=0; i < count_messages; i++))
 do
+#  echo `date` >>./product_list.json
+#  echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i,\"ddate:\"\"`date`\"}" >> ./product_list.json
   echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i}" >> ./product_list.json
 done
 
