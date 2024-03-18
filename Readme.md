@@ -33,7 +33,7 @@ Manual receive messages:
 
 Config:
 
-Задать время хранения данных в топике 3 мин (retention.ms=180 000 мсек.), после этого __УДАЛЯТЬ__ (__ДАЖЕ ЕСЛИ НЕ ПРОЧИТАНЫ ДАЖЕ ЕСЛИ НЕ ПРОЧИТАНЫ__):
+Задать время хранения данных в топике 3 мин (retention.ms=180 000 мсек.), после этого __УДАЛЯТЬ__ (__ДАЖЕ ЕСЛИ НЕ ПРОЧИТАНЫ__):
 
 ````shell
 ./kafka-configs.sh --bootstrap-server 192.168.1.20:9092 --entity-type topics --entity-name product_ext_dto --alter --add-config retention.ms=180000
