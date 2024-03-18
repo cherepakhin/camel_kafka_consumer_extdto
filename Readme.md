@@ -33,7 +33,7 @@ Manual receive messages:
 
 Config:
 
-Задать время хранения данных в топике 3 мин (retention.ms=180 000 мсек.), после этого __УДАЛЯТЬ__ (__ДАЖЕ ЕСЛИ НЕ ПРОЧИТАНЫ__):
+Задать время хранения данных в топике 3 мин (retention.ms=180 000 мсек.), после этого __УДАЛЯТЬ__ (__ДАЖЕ ЕСЛИ НЕ ПРОЧИТАНЫ!!!__):
 
 ````shell
 ./kafka-configs.sh --bootstrap-server 192.168.1.20:9092 --entity-type topics --entity-name product_ext_dto --alter --add-config retention.ms=180000
@@ -184,6 +184,6 @@ vasi@v ~/tools/kafdrop $ ./run.sh
 
 UI:
 
-http://192.168.1.20:9000/
+Kafdrop: http://192.168.1.20:9000/
 
 ![kafka_drop_ui](doc/kafka_drop/ui.png)
