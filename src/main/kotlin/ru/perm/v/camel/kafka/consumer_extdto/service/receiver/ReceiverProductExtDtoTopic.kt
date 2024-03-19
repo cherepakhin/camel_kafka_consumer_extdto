@@ -31,8 +31,11 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
         from("kafka:$PRODUCT_EXT_DTO_TOPIC?brokers=$KAFKA_HOST")
             .log("ReceiverProductExtDtoTopic. Camel \"from\" received from Kafka queue ${PRODUCT_EXT_DTO_TOPIC} body=\${body}")
 // Method 1 usage SPRING BEAN. Send to bean. Bean defined as string.
-// it will be convert String to ProductExtDto defined
-//      in external library: implementation("ru.perm.v:shop_kotlin_extdto".
+// Input is JSON String.
+// it will be convert String to ProductExtDto.
+// ProductExtDto from implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
+// defined in external PRIVATE library http://v.perm.ru:8082/repository/ru.perm.v/shop_kotlin_extdto/:
+
 // MapperProductExtDto is NOT REQUIRES dependence Camel.
 //      method fromJson() simple receive JSON String and convert to ProductExtDto
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
