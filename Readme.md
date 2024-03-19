@@ -250,3 +250,8 @@ INFO 4340 --- [ram_text_topic]] route3                                   : Recei
 INFO 4340 --- [ram_text_topic]] route3                                   : ReceiverWithParamsYAML. Camel "from" received from Kafka queue "param_text_topic" body=message_99
 
 ````
+
+### Links:
+
+[Apache Camel и Spring Boot](https://habr.com/ru/companies/otus/articles/557068/)
+[Creating a REST service with Apache Camel](https://tomd.xyz/camel-rest/)
