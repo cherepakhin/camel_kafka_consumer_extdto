@@ -3,13 +3,28 @@
 Simple receive messages (text and json) from Kafka queue with Camel.
 
 [Environment variables:
-__APP_CAMEL_KAFKA_CONSUMER_API_PORT__ - __REST API__ port __application__ (defult value 8994).
+__APP_CAMEL_KAFKA_CONSUMER_API_PORT__ - __REST API__ port __application__ (default value 8994).
 
 Library ExtDto [https://github.com/cherepakhin/shop_kotlin_extdto](https://github.com/cherepakhin/shop_kotlin_extdto/tree/main/src/main/kotlin/ru/perm/v/shopkotlin/extdto)
 
 Spring Actuator: http://127.0.0.1:8998/camel_kafka_consumer_extdto/api/actuator (__port: 8998__)
 
 REST URL: /camel_kafka_consumer_extdto/api
+
+## Simple echo REST test:
+
+````shell
+http http://127.0.0.1:8994/camel_kafka_consumer_extdto/api/echo/aaa
+
+HTTP/1.1 200 
+Connection: keep-alive
+Content-Length: 3
+Content-Type: text/plain;charset=UTF-8
+Keep-Alive: timeout=60
+
+aaa
+
+````
 
 Swagger: http://127.0.0.1:__APP_CAMEL_KAFKA_CONSUMER_API_PORT__/camel_kafka_consumer_extdto/api/swagger-ui/index.html
 (default http://127.0.0.1:8994/camel_kafka_consumer_extdto/api/swagger-ui/index.html)
