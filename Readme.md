@@ -187,3 +187,11 @@ UI:
 Kafdrop: http://192.168.1.20:9000/
 
 ![kafka_drop_ui](doc/kafka_drop/ui.png)
+
+### Разное
+
+1. Deploy to Nexus repository:
+
+````shell
+$ ./gradlew publish
+````

@@ -11,4 +11,4 @@
 # run from  directory "~/prog/kotlin/shop/kafka/shop_kafka_producer/doc/send_file" command:
 #   cat ./list_product | /opt/kafka/bin/kafka-console-producer.sh --broker-list 192.168.1.20:9092 --topic product_ext_dto_topic
 # $1 - topic from which to consume(product_ext_dto_topic)
-/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic $1
+/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --from-beginning --topic $1

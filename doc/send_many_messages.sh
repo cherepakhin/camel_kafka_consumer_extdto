@@ -19,8 +19,8 @@ count_messages=$1
 for ((i=0; i < count_messages; i++))
 do
 #  echo `date` >>./product_list.json
-#  echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i,\"ddate:\"\"`date`\"}" >> ./product_list.json
-  echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i}" >> ./product_list.json
+  echo "{\"n\":$i,\"name\":\"NAME_$i `date +%d.%m\ %H:%M:%S`\",\"groupDtoN\":$i}" >> ./product_list.json
+#  echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i}" >> ./product_list.json
 done
 
 # send json to queue.
