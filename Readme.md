@@ -177,7 +177,7 @@ camel_kafka_consumer_extdto/doc$ ./send_many_messages.sh 100000
 ```
 Grafana:
 
-![grafana_test_load_100_000](doc/grafana_test_load_100_000.png)
+![grafana_test_load_100_000](doc/grafana_test_100_000_load.png)
 
 ### Kafka Drop
 
