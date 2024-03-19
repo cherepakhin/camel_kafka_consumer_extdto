@@ -229,3 +229,9 @@ myconfig:
   simpleTextTopic: simple_text
 
 ````
+
+Manual test:
+
+````shell
+./doc/run-producer.sh simple_text
+````

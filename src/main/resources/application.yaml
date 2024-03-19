@@ -58,5 +58,5 @@ camel:
 myconfig:
   kafkaHost: 192.168.1.20:9092
   productExtDtoTopic: product_ext_dto
-  simpleTextTopic: simple_text
+  paramTextTopic: param_text_topic
 

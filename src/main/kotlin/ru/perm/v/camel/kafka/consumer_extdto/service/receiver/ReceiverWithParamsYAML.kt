@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 @Component
 class ReceiverWithParamsYAML: RouteBuilder() {
     override fun configure() {
-        from("kafka:{{myconfig.simpleTextTopic}}?brokers={{myconfig.kafkaHost}}")
-            .log("ReceiverWithParamsYAML. Camel \"from\" received from Kafka queue \"{{myconfig.simpleTextTopic}}\" body=\${body}")
+        from("kafka:{{myconfig.paramTextTopic}}?brokers={{myconfig.kafkaHost}}")
+            .log("ReceiverWithParamsYAML. Camel \"from\" received from Kafka queue \"{{myconfig.paramTextTopic}}\" body=\${body}")
     }
 }
