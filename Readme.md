@@ -168,6 +168,17 @@ Setup job in Prometheus:
 
 ````
 
+### Load test
+
+Send 100_000 messages:
+
+```shell
+camel_kafka_consumer_extdto/doc$ ./send_many_messages.sh 100000
+```
+Grafana:
+
+![grafana](doc/grafana_test_100_000.png)
+
 ### Kafka Drop
 
 UI for Kafka
