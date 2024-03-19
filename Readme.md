@@ -152,7 +152,7 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 
 ### Prometheus
 
-Настройка задания Prometheus для опроса приложения:
+Setup job in Prometheus:
 
 ````yaml
 # http://127.0.0.1:8998/camel_kafka_consumer_extdto/api/actuator/"
@@ -176,7 +176,7 @@ UI for Kafka
 
 JAVA 17.
 
-Запуск kafdrop (из v.perm.ru:/home/vasi/tools/kafdrop/):
+Run UI Kafdrop (from v.perm.ru:/home/vasi/tools/kafdrop/):
 
 ````shell
 vasi@v ~/tools/kafdrop $ ./run.sh
@@ -188,7 +188,7 @@ Kafdrop: http://192.168.1.20:9000/
 
 ![kafka_drop_ui](doc/kafka_drop/ui.png)
 
-### Разное
+### Other
 
 1. Deploy to Nexus repository:
 
