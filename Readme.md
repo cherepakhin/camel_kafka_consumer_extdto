@@ -235,3 +235,18 @@ Manual test:
 ````shell
 ./doc/run-producer.sh simple_text
 ````
+
+Manual integration test:
+
+````shell
+camel_kafka_consumer_extdto$ ./doc/send_messages_to_param_topic.sh 100
+````
+
+Log:
+
+````text
+...
+INFO 4340 --- [ram_text_topic]] route3                                   : ReceiverWithParamsYAML. Camel "from" received from Kafka queue "param_text_topic" body=message_98
+INFO 4340 --- [ram_text_topic]] route3                                   : ReceiverWithParamsYAML. Camel "from" received from Kafka queue "param_text_topic" body=message_99
+
+````
