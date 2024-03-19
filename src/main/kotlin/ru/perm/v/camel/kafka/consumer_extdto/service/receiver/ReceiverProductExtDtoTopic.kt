@@ -13,6 +13,11 @@ import ru.perm.v.camel.kafka.consumer_extdto.service.processor.ProductCamelProce
  * for manual test receiver, send to kafka through console:
  * $ ~/tools/kafka/bin/kafka-console-producer.sh --bootstrap-server 192.168.1.20:9092 --topic product-ext-dto
  * >{"n":10,"name":"NAME_10","groupDtoN":100}
+ *
+ * Spring+Camel comment:
+ * Camel использует для создания ссылок на объекты собственный контекст.
+ * Однако при работе со SpringBoot сначала Camel выполняет поиск в контексте SpringBoot,
+ * а затем внедряет найденные в нем объекты в свой контекст CamelContext
  */
 @Component
 class ReceiverProductExtDtoTopic: RouteBuilder() {
@@ -37,13 +42,15 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 // defined in external PRIVATE library http://v.perm.ru:8082/repository/ru.perm.v/shop_kotlin_extdto/:
 
 // MapperProductExtDto is NOT REQUIRES dependence Camel.
-//      method fromJson() simple receive JSON String and convert to ProductExtDto
+//      method fromJson() simple receive JSON String and convert to object ProductExtDto
+// object MapperProductExtDto constructed automatically
             .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
 // Method 2 usage SPRING BEAN. Send to bean with class and method.
 // UserProductExtDtoService{ fun processMethod(product: ProductExtDTO): ProductExtDTO {...}}
 // UserProductExtDtoService does NOT REQUIRES dependence Camel.
 // function .bean() like .to(), but use simple class with any method and return any object.
 // BUT method name is STRING VALUE!!!.
+// Как находится bean? См. кооментарий выше "Spring+Camel comment:".
             .bean(UserProductExtDtoService::class.java, "processMethod")
 // Method 3 usage SPRING BEAN. Send bean to processor (need implemented Processor from Camel).
 // Processor have default method process(exchange: Exchange?).

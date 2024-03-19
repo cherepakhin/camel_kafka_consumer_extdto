@@ -206,3 +206,5 @@ Kafdrop: http://192.168.1.20:9000/
 ````shell
 $ ./gradlew publish
 ````
+
+2. Camel использует для создания ссылок на объекты собственный контекст. Однако при работе со SpringBoot сначала Camel выполняет поиск в контексте SpringBoot, а затем внедряет найденные в нем объекты в свой контекст CamelContext [https://habr.com/ru/companies/otus/articles/557068/](https://habr.com/ru/companies/otus/articles/557068/)
