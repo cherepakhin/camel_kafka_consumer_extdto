@@ -38,14 +38,15 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 // UserProductExtDtoService{ fun processMethod(product: ProductExtDTO): ProductExtDTO {...}}
 // UserProductExtDtoService does NOT REQUIRES dependence Camel.
 // function .bean() like .to(), but use simple class with any method and return any object.
-// BUT method name is STRING VALUE(!).
+// BUT method name is STRING VALUE!!!.
             .bean(UserProductExtDtoService::class.java, "processMethod")
-// Method 3 usage BEAN. Send bean to processor (need implemented Processor).
+// Method 3 usage BEAN. Send bean to processor (need implemented Processor from Camel).
 // Processor have default method process(exchange: Exchange?).
 // ProductCamelProcessor REQUIRES dependence Camel.
 // function .bean() like .to()
             .bean(ProductCamelProcessor::class.java)
-// Method 4 usage BEAN. Send to autowired SPRING BEAN
+// Method 4 usage BEAN. Send to @Autowired SPRING BEAN ("@Autowired receiverSpringBean")
+// BUT method name is STRING VALUE!!!.
             .bean(receiverSpringBean, "receive")
             .log("ReceiverProductExtDtoTopic. Converted messages: \${body}") // body is object ProductExtDto
 //            .to("kafka:processed-orders")
