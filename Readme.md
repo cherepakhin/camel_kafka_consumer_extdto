@@ -209,14 +209,23 @@ $ ./gradlew publish
 
 2. Camel использует для создания ссылок на объекты собственный контекст. Однако при работе со SpringBoot сначала Camel выполняет поиск в контексте SpringBoot, а затем внедряет найденные в нем объекты в свой контекст CamelContext [https://habr.com/ru/companies/otus/articles/557068/](https://habr.com/ru/companies/otus/articles/557068/)
 
-3. Apache Camel поддерживает использование свойств Spring Boot. Можно ссылаться на такие свойства напрямую, используя имя свойства и значение по умолчанию: __{{имя_свойства:значение_по_умолчанию}}__. Пример:
+3. Apache Camel поддерживает использование свойств Spring Boot. Можно ссылаться на такие свойства напрямую, используя имя свойства и значение по умолчанию: __{{имя_свойства:значение_по_умолчанию}}__. Пример [ru.perm.v.camel.kafka.consumer_extdto.service.receiver.ReceiverWithParamsYAML.kt](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/src/main/kotlin/ru/perm/v/camel/kafka/consumer_extdto/service/receiver/ReceiverWithParamsYAML.kt):
 
 ````kotlin
-from("jpa:org.apache.camel.example.spring.boot.rest.jpa.Product"
-        + "?namedQuery=discounted-products"
-        + "&delay={{discount.listDiscountPeriod:6000}}"
-        + "&consumeDelete=false")
-    .routeId("list-discounted-products")
-    .log(
-        "Discounted product ${body.name}. Price dropped from ${body.price} to ${body.discounted}");
+@Component
+class ReceiverWithParamsYAML: RouteBuilder() {
+    override fun configure() {
+        from("kafka:{{myconfig.simpleTextTopic}}?brokers={{myconfig.kafkaHost}}")
+            .log("ReceiverWithParamsYAML. Camel \"from\" received from Kafka queue \"{{myconfig.simpleTextTopic}}\" body=\${body}")
+    }
+}
+````
+
+__myconfig.kafkaHost__ и __simpleTextTopic__ заданы в  [application.yaml](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/src/main/kotlin/ru/perm/v/camel/kafka/consumer_extdto/application.yaml):
+
+````yaml
+myconfig:
+  kafkaHost: 192.168.1.20:9092
+  simpleTextTopic: simple_text
+
 ````
