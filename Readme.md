@@ -208,3 +208,15 @@ $ ./gradlew publish
 ````
 
 2. Camel использует для создания ссылок на объекты собственный контекст. Однако при работе со SpringBoot сначала Camel выполняет поиск в контексте SpringBoot, а затем внедряет найденные в нем объекты в свой контекст CamelContext [https://habr.com/ru/companies/otus/articles/557068/](https://habr.com/ru/companies/otus/articles/557068/)
+
+3. Apache Camel поддерживает использование свойств Spring Boot. Можно ссылаться на такие свойства напрямую, используя имя свойства и значение по умолчанию: __{{имя_свойства:значение_по_умолчанию}}__. Пример:
+
+````kotlin
+from("jpa:org.apache.camel.example.spring.boot.rest.jpa.Product"
+        + "?namedQuery=discounted-products"
+        + "&delay={{discount.listDiscountPeriod:6000}}"
+        + "&consumeDelete=false")
+    .routeId("list-discounted-products")
+    .log(
+        "Discounted product ${body.name}. Price dropped from ${body.price} to ${body.discounted}");
+````
