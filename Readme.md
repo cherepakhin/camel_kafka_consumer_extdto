@@ -245,7 +245,7 @@ myconfig:
 
 ````
 
-Manual test:
+#### Example Manual test 2
 
 ````shell
 ./doc/run-producer.sh simple_text
@@ -265,6 +265,20 @@ INFO 4340 --- [ram_text_topic]] route3                                   : Recei
 INFO 4340 --- [ram_text_topic]] route3                                   : ReceiverWithParamsYAML. Camel "from" received from Kafka queue "param_text_topic" body=message_99
 
 ````
+
+#### Manual test Example 2
+
+Run consumer:
+````shell
+camel_kafka_consumer_extdto/doc$ ./run_consumer.sh product_ext_dto
+````
+
+Send messages:
+````shell
+camel_kafka_consumer_extdto/doc$ ./send_many_messages.sh 100
+````
+
+See sended messages in consumer.
 
 ### Links:
 
