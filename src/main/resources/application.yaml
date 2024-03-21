@@ -1,5 +1,5 @@
 server:
-  port: ${APP_CAMEL_KAFKA_CONSUMER_API_PORT:8994}
+  port: 8994
   jetty:
     min-threads: 8
     max-threads: 200
@@ -54,7 +54,10 @@ management:
 camel:
   springboot:
     main-run-controller: true
-
+  component:
+    servlet:
+      mapping:
+        context-path: "/camel_context/*"
 myconfig:
   kafkaHost: 192.168.1.20:9092
   productExtDtoTopic: product_ext_dto

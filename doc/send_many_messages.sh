@@ -25,4 +25,4 @@ done
 
 # send json to queue.
 # product_ext_dto - topic for send messages
-./run-producer.sh product_ext_dto < ./product_list.json
+./run_producer.sh product_ext_dto < ./product_list.json
