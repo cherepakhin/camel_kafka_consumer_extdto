@@ -106,7 +106,7 @@ builded jar in **./build/libs/**
 run with limit RAM 256Mb:
 
 ````shell
-camel_kafka_consumer_extdto$ /usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx256M -jar build/libs/camel_kafka_coumer_extdto-0.24.0319.1.jar
+camel_kafka_consumer_extdto$ /usr/lib/jvm/java-17-openjdk-amd64/bin/java -jar build/libs/camel_kafka_consumer_extdto-0.24.0322.1.jar
 ````
 
 __(Использована Java 17, т.к. org.apache.camel.builder.RouteBuilder требует 17.
