@@ -191,7 +191,7 @@ Grafana:
 
 ![grafana_test_load_100000](doc/grafana_test_100000_msg.png)
 
-Еще несколько тестов:
+Еще несколько тестов (1000 - 5000 сообщений):
 
 ![grafana_test](doc/grafana_test.png)
 
