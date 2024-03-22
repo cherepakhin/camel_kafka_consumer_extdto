@@ -2,8 +2,8 @@
 # Script fro manual testing of the consumer
 
 # $1 - topic from which to consume
-#~/tools/kafkin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto_topic
-# ./run_consumer.sh product_ext_dto_topic
+#~/tools/kafkin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto
+# ./run_consumer.sh product_ext_dto
 
 # Example:
 # from project https://github.com/cherepakhin/shop_kafka_producer

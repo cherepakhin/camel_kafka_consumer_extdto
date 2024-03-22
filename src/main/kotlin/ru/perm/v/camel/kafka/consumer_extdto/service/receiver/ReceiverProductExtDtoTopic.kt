@@ -48,7 +48,7 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 //      method fromJson() simple receive JSON String and convert to object ProductExtDto
 // object MapperProductExtDto constructed automatically
 
-//            .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
+            .to("bean:ru.perm.v.camel.kafka.consumer_extdto.mapper.MapperProductExtDto?method=fromJson")
 
 // Method 2 usage SPRING BEAN. Send to bean with class and method.
 // UserProductExtDtoService{ fun processMethod(product: ProductExtDTO): ProductExtDTO {...}}
