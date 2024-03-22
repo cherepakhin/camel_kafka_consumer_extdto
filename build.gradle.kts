@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.com.intellij.openapi.vfs.StandardFileSystems.jar
 
 group = "ru.perm.v"
 // change version on publishing
-version = "0.24.0319.1"
+version = "0.24.0322.1"
 description = "Camel Kafka Consumer with ru.perm.v.shop_kotlin_extdto"
 val kafkaApiVersion = "3.3.1"
 var shopKotlinExtDtoVersion = "0.0.5"
