@@ -1,11 +1,9 @@
 package ru.perm.v.camel.kafka.consumer_extdto.service.receiver
 
 import org.apache.camel.builder.RouteBuilder
-import org.apache.camel.impl.DefaultCamelContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import ru.perm.v.camel.kafka.consumer_extdto.service.UserProductExtDtoService
 import ru.perm.v.camel.kafka.consumer_extdto.service.processor.ProductCamelProcessor
 
 /**
@@ -66,7 +64,7 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 // ProductCamelProcessor REQUIRES dependence Camel.
 // function .bean() like .to()
 
-//            .bean(ProductCamelProcessor::class.java)
+            .bean(ProductCamelProcessor::class.java)
 
 // Method 4 usage SPRING BEAN. Send to @Autowired SPRING BEAN ("@Autowired receiverSpringBean")
 // BUT method name is STRING VALUE!!!.

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 /**
- * test http http://127.0.0.1:8994//camel_kafka_consumer_extdto/api/echo/aaaa
+ * test http http://127.0.0.1:8990/camel_kafka_consumer_extdto/api/echo/aaa
  */
 @RestController
 @RequestMapping("/echo")
