@@ -109,7 +109,8 @@ run with limit RAM 256Mb:
 camel_kafka_consumer_extdto$ /usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx256M -jar build/libs/camel_kafka_coumer_extdto-0.24.0319.1.jar
 ````
 
-__(echo $JAVA_HOME -> /usr/lib/jvm/java-11-openjdk-amd64, build.gradle.kts: "jvmTarget = '11'")__
+__(Использована Java 17, т.к. org.apache.camel.builder.RouteBuilder требует 17.
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/, build.gradle.kts: "jvmTarget = '17'")__
 
 ### Jenkins pipeline
 
