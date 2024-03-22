@@ -69,10 +69,12 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.kafka:spring-kafka")
 // https://mavenlibs.com/maven/dependency/org.apache.camel.springboot/camel-spring-boot
-//	implementation("org.apache.camel.springboot:camel-spring-boot:4.0.0")
+	implementation("org.apache.camel.springboot:camel-spring-boot:4.0.0")
+// https://mvnrepository.com/artifact/org.apache.camel/camel-bean
+	implementation("org.apache.camel:camel-bean:3.21.0")
 
 //kafka
-//	implementation("org.apache.camel.springboot:camel-kafka-starter:4.0.0")
+	implementation("org.apache.camel.springboot:camel-kafka-starter:4.0.0")
 // my extdto
 	implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
 // prometheus - metrics
@@ -86,11 +88,11 @@ dependencies {
 //	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
 
 // camel
-	implementation("org.apache.camel.springboot:camel-spring-boot-starter:4.3.0")
-	implementation("org.apache.camel.springboot:camel-servlet-starter:4.3.0")
-	implementation("org.apache.camel.springboot:camel-jackson-starter:4.3.0")
+	implementation("org.apache.camel:camel-spring-boot-starter:2.17.1")
+//	implementation("org.apache.camel.springboot:camel-servlet-starter:4.3.0")
+//	implementation("org.apache.camel.springboot:camel-jackson-starter:4.3.0")
 
-	implementation("org.apache.camel.springboot:camel-kafka-starter:4.0.0")
+//	implementation("org.apache.camel.springboot:camel-kafka-starter:4.0.0")
 
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 

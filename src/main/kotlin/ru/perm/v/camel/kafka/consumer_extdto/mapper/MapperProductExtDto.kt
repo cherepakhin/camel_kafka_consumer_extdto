@@ -3,7 +3,9 @@ package ru.perm.v.camel.kafka.consumer_extdto.mapper
 import org.slf4j.LoggerFactory
 import ru.perm.v.shopkotlin.extdto.ProductExtDTO
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import org.springframework.stereotype.Component
 
+@Component
 class MapperProductExtDto {
     private val logger = LoggerFactory.getLogger(this.javaClass.name)
     val mapper = jacksonObjectMapper()
