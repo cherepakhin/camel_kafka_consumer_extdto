@@ -3,18 +3,18 @@
 Simple receive messages (text and json) from Kafka queue with Camel.
 
 [Environment variables:
-__APP_CAMEL_KAFKA_CONSUMER_API_PORT__ - __REST API__ port __application__ (default value 8994).
+__APP_CAMEL_KAFKA_CONSUMER_API_PORT__ - __REST API__ port __application__ (default value 8990).
 
 Library ExtDto [https://github.com/cherepakhin/shop_kotlin_extdto](https://github.com/cherepakhin/shop_kotlin_extdto/tree/main/src/main/kotlin/ru/perm/v/shopkotlin/extdto)
 
-Spring Actuator: http://127.0.0.1:8998/camel_kafka_consumer_extdto/api/actuator (__port: 8998__)
+Spring Actuator: http://127.0.0.1:8992/camel_kafka_consumer_extdto/api/actuator (__port: 8992__)
 
 REST URL: /camel_kafka_consumer_extdto/api
 
 ## Simple echo REST test:
 
 ````shell
-http http://127.0.0.1:8994/camel_kafka_consumer_extdto/api/echo/aaa
+http http://127.0.0.1:8990/camel_kafka_consumer_extdto/api/echo/aaa
 
 HTTP/1.1 200 
 Connection: keep-alive
@@ -27,7 +27,7 @@ aaa
 ````
 
 Swagger: http://127.0.0.1:__APP_CAMEL_KAFKA_CONSUMER_API_PORT__/camel_kafka_consumer_extdto/api/swagger-ui/index.html
-(default http://127.0.0.1:8994/camel_kafka_consumer_extdto/api/swagger-ui/index.html)
+(default http://127.0.0.1:8990/camel_kafka_consumer_extdto/api/swagger-ui/index.html)
 
 ![swagger](doc/swagger.png)
 
@@ -97,7 +97,7 @@ For an example of use, see [ReceiverProductExtDtoTopic.kt](https://github.com/ch
 Build:
 
 ````shell
-./gradlew bootJar
+./gradlew clean bootJar
 ````
 (**bootJar**, NOT **bootRun!!!**)
 
@@ -106,15 +106,11 @@ builded jar in **./build/libs/**
 run with limit RAM 256Mb:
 
 ````shell
-shop_kotlin/$ java -Xmx256M -jar build/libs/camel_kafka_consumer_extdto-0.24.0313.1.jar
+camel_kafka_consumer_extdto$ /usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx256M -jar build/libs/camel_kafka_coumer_extdto-0.24.0319.1.jar
 ````
 
-or:
+__(echo $JAVA_HOME -> /usr/lib/jvm/java-11-openjdk-amd64, build.gradle.kts: "jvmTarget = '11'")__
 
-````shell
-cd shop_kotlin/build/libs 
-shop_kotlin/build/libs$ java -Xmx256M -jar shop_kotlin-0.1.20.jar
-````
 ### Jenkins pipeline
 
 [Jenkinsfile](https://github.com/cherepakhin/camel_kafka_consumer_extdto/blob/main/Jenkinsfile)
@@ -170,7 +166,7 @@ class ReceiverProductExtDtoTopic: RouteBuilder() {
 Setup job in Prometheus:
 
 ````yaml
-# http://127.0.0.1:8998/camel_kafka_consumer_extdto/api/actuator/"
+# http://127.0.0.1:8992/camel_kafka_consumer_extdto/api/actuator/"
 - job_name: "camel_kafka_consumer_extdto(note 1.57)"
   scrape_interval: 5s
 
