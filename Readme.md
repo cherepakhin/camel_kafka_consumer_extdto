@@ -195,13 +195,13 @@ Grafana:
 
 ![grafana_test](doc/grafana_test.png)
 
-### Kafka Drop
+## Tools with GUI for Kafka
 
-UI for Kafka
+### Kafka Drop
 
 [https://github.com/obsidiandynamics/kafdrop](https://github.com/obsidiandynamics/kafdrop)
 
-JAVA 17.
+Need JAVA 17.
 
 Run UI Kafdrop (from v.perm.ru:/home/vasi/tools/kafdrop/):
 
@@ -211,9 +211,26 @@ vasi@v ~/tools/kafdrop $ ./run.sh
 
 UI:
 
-Kafdrop: http://192.168.1.20:9000/
+Access from browser: http://192.168.1.20:9000/
 
-![kafka_drop_ui](doc/kafka_drop/ui.png)
+![kafka_drop_ui](doc/kafka_drop/kafka_drop.png)
+
+
+### Kafka UI
+
+[https://github.com/provectus/kafka-ui](https://github.com/provectus/kafka-ui)
+
+Start service Kafka UI:
+
+````shell
+vasi@v ~/tools/kafka_ui $ ./start.sh
+````
+
+Access from browser:
+
+http://192.168.1.20:8960/ui/clusters/local/all-topics?perPage=25
+
+![kafka_ui](doc/kafka_ui/kafka_ui.png)
 
 ### Other
 
@@ -274,14 +291,29 @@ Run consumer:
 camel_kafka_consumer_extdto/doc$ ./run_consumer.sh product_ext_dto
 ````
 
-Send messages:
+Send messages to topic __product_ext_dto__:
 ````shell
 camel_kafka_consumer_extdto/doc$ ./send_many_messages.sh 100
 ````
 
-See sended messages in consumer.
+See sent messages in consumer.
+
+#### Manual test Example 3
+
+First, run consumer for __"text_topic"__:
+
+````shell
+doc$ ./doc/run_consumer.sh text_topic
+````
+
+Send messages (from ./ !):
+
+````shell
+./doc/send_messages_to_text_topic.sh 100
+````
 
 ### Links:
 
 [Apache Camel и Spring Boot](https://habr.com/ru/companies/otus/articles/557068/)
 [Creating a REST service with Apache Camel](https://tomd.xyz/camel-rest/)
+

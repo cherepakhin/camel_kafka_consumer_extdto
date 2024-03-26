@@ -16,5 +16,5 @@ do
 done
 
 # send json to queue.
-# product_ext_dto - topic for send messages
-./doc/run_producer.sh param_text_topic < ./doc/messages.txt
+# param_text_topic - topic for received messages
+./doc/run_producer.sh text_topic < ./doc/messages.txt

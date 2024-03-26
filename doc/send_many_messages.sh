@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# run from doc/
 # for test send many messages to queue `product_ext_dto_topic`  and view in console received messages
 # run from ~/prog/kotlin/camel/camel_kafka_consumer_extdto/doc/send_many_messages.sh
 # cd ~/prog/kotlin/camel/camel_kafka_consumer_extdto/doc/
@@ -22,7 +23,7 @@ do
   echo "{\"n\":$i,\"name\":\"NAME_$i `date +%d.%m\ %H:%M:%S`\",\"groupDtoN\":$i}" >> ./product_list.json
 #  echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i}" >> ./product_list.json
 done
-
+echo "End generate messages"
 # send json to queue.
 # product_ext_dto - topic for send messages
 ./run_producer.sh product_ext_dto < ./product_list.json
